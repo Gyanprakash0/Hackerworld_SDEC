@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanketh 2024 | Error - 404</title>
+  <style>
+    body {
+      font-family: 'EB Garamond', serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'EB Garamond', serif;
+    }
+
+    .regal-button {
+      font-family: 'EB Garamond', serif;
+    }
+
+    .download-button {
+      font-family: 'Garamond', serif;
+      font-size: 18px;
+      color: #fff;
+      background-color: #800000;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #fff;
+      color: #800000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .download-button::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px dashed #fff;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .download-button:hover::before {
+      opacity: 1;
+    }
+
+    body {
+      background-image: url('Designer (7).png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+    }
+
+    #countdown-container {
+ 
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    #countdown {
+      font-size: 20px;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .countdown-element {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #800000;
+      margin: 0 5px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .full-width-container {
+      position: relative;
+      width: 100%;
+      padding: 50px 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .regal-button {
+      font-family: 'Garamond', serif;
+      font-size: 18px;
+      color: #fff;
+      background-color: #800000;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+    }
+
+    .regal-button:hover {
+      background-color: #fff;
+      color: #800000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .regal-button::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px dashed #fff;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .regal-button:hover::before {
+      opacity: 1;
+    }
+
+    event-time {
+      font-size: 20px;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#" class="download-button" onclick="downloadPDF()">Download Rule Book</a>
+  
+  <div id="countdown-container">
+    <div id="countdown"></div>
+  </div>
+
+  <div class="full-width-container">
+    <div class="container">
+      <h1>Error 404</h1>
+      <p>Error 404 is a debugging event where participants are given codes to debug. This multistep process involves identifying a problem, isolating the source, correcting it, or finding a workaround. In software engineering, the debugging process begins when a developer locates a code error in a program and reproduces it. It is an integral part of the software testing process and is evaluated based on participant performance in each stage.</p>
+      <a href="https://unstop.com/quiz/error-404-the-debugging-event-sanketh-sdgi-global-university-940095"target="blank" class="regal-button">Register Now</a>
+      <a href="hackathon.html" class="regal-button">Back To Kingdom</a>
+    </div>
+    <div class="event-time">Event Date & Time: 11:30 AM to 12:30 PM, 4th April 2024</div>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      var pdfURL = 'rulebook/Error_404_Rulebook.pdf';
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.target = '_blank';
+      link.setAttribute('download', 'Error_404_Rulebook.pdf');
+      if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        link.dispatchEvent(event);
+      } else {
+        link.click();
+      }
+    }
+
+    function countdownTimer() {
+      var targetDate = new Date('2024-04-04T00:00:00Z').getTime();
+      var timer = setInterval(function() {
+        var now = new Date().getTime();
+        var timeRemaining = targetDate - now;
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        document.getElementById('countdown').innerHTML = 
+          '<div class="countdown-element">' + days + 'd</div>' + 
+          '<div class="countdown-element">' + hours + 'h</div>' + 
+          '<div class="countdown-element">' + minutes + 'm</div>' + 
+          '<div class="countdown-element">' + seconds + 's</div>';
+        if (timeRemaining < 0) {
+          clearInterval(timer);
+          document.getElementById('countdown').innerHTML = 'Countdown expired!';
+        }
+      }, 1000);
+    }
+
+    countdownTimer();
+  </script>
+</body>
+</html>

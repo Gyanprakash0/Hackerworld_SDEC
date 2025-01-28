@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanketh 2024 | Reverse Engineering</title>
+  <style>
+    body {
+      font-family: 'EB Garamond', serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'EB Garamond', serif;
+    }
+
+    .regal-button {
+      font-family: 'EB Garamond', serif;
+    }
+
+    .download-button {
+      font-family: 'Garamond', serif;
+      font-size: 18px;
+      color: #fff;
+      background-color: #800000;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #fff;
+      color: #800000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .download-button::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px dashed #fff;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .download-button:hover::before {
+      opacity: 1;
+    }
+
+    body {
+      background-image: url('Designer (5).png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+    }
+
+    #countdown-container {
+      background-color: #f1f1ed00;
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    #countdown {
+      font-size: 20px;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .countdown-element {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #800000;
+      margin: 0 5px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .full-width-container {
+      position: relative;
+      width: 100%;
+      padding: 50px 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .regal-button {
+      font-family: 'Garamond', serif;
+      font-size: 18px;
+      color: #fff;
+      background-color: #800000;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+    }
+
+    .regal-button:hover {
+      background-color: #fff;
+      color: #800000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .regal-button::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px dashed #fff;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .regal-button:hover::before {
+      opacity: 1;
+    }
+
+    event-time {
+      font-size: 20px;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#" class="download-button" onclick="downloadPDF()">Download Rule Book</a>
+  
+  <div id="countdown-container">
+    <div id="countdown"></div>
+  </div>
+
+  <div class="full-width-container">
+    <div class="container">
+      <h1>BITS - </h1>
+      <p>Get ready for a coding showdown! We're excited to invite you to our upcoming competition where your coding skills take center stage. This occasion constitutes a technology-centric trivia, wherein participants assemble into teams with a maximum composition of three individuals, engaging in the resolution of coding competitions. Preliminary rounds will filter adept minds, leading to a coding sprint as the final phase. The victorious team is decided based on swift progression, culminating in a questionnaire focused on code debugging, time complexity, and code optimization.</p>
+      <a href="https://hack.codingblocks.com/app/contests/5742" target="blank" class="regal-button">Register Now</a>
+      <a href="hackathon.html" class="regal-button">Back To Kingdom</a>
+    </div>
+    <div class="event-time">Event Date & Time: 10:30 AM to 11:30 AM, 5th April 2024</div>
+
+    <div class="event-time">Sponsered by Coding Block</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="https://cb3img.s3.ap-south-1.amazonaws.com/img/cblogo.webp" alt="Coding Block">
+        </div>
+    </div>
+</div>
+
+
+  </div>
+
+  <script>
+    function downloadPDF() {
+      var pdfURL = 'rulebook/Bits_RuleBook.pdf';
+      var link = document.createElement('a');
+      link.href = pdfURL;
+      link.target = '_blank';
+      link.setAttribute('download', 'Bits_RuleBook.pdf');
+      if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        link.dispatchEvent(event);
+      } else {
+        link.click();
+      }
+    }
+
+    function countdownTimer() {
+      var targetDate = new Date('2024-04-04T00:00:00Z').getTime();
+      var timer = setInterval(function() {
+        var now = new Date().getTime();
+        var timeRemaining = targetDate - now;
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        document.getElementById('countdown').innerHTML = 
+          '<div class="countdown-element">' + days + 'd</div>' + 
+          '<div class="countdown-element">' + hours + 'h</div>' + 
+          '<div class="countdown-element">' + minutes + 'm</div>' + 
+          '<div class="countdown-element">' + seconds + 's</div>';
+        if (timeRemaining < 0) {
+          clearInterval(timer);
+          document.getElementById('countdown').innerHTML = 'Countdown expired!';
+        }
+      }, 1000);
+    }
+
+    countdownTimer();
+  </script>
+
+
+</script>
+</body>
+</html>

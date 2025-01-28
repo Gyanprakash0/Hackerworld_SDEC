@@ -1,0 +1,382 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.color {
+  background-color:black;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+}
+/* Add this CSS for the dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.regal-button {
+  font-family: 'Garamond', serif; /* Use a serif font for a vintage feel */
+  font-size: 18px; /* Adjust font size as needed */
+  color: #fff; /* Text color */
+  background-color: #800000; /* Regal red background color */
+  border: 2px solid #fff; /* White border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px 20px; /* Padding around text */
+  text-decoration: none; /* Remove default link underline */
+  display: inline-block; /* Display as block element */
+  cursor: pointer; /* Show pointer on hover */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  position: relative; /* Position relative for pseudo-elements */
+}
+
+/* Hover effect */
+.regal-button:hover {
+  background-color: #fff; /* White background on hover */
+  color: #800000; /* Regal red text color on hover */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Shadow on hover */
+}
+
+/* Pseudo-element for guidelines */
+.regal-button::before {
+  content: ''; /* Required for pseudo-elements */
+  position: absolute; /* Position absolute */
+  top: -5px; /* Position above button */
+  left: -5px; /* Position left of button */
+  right: -5px; /* Position right of button */
+  bottom: -5px; /* Position below button */
+  border: 2px dashed #fff; /* Dashed border */
+  border-radius: 12px; /* Rounded corners */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Fade-in transition */
+}
+
+/* Show guidelines on hover */
+.regal-button:hover::before {
+  opacity: 1; /* Show guidelines on hover */
+}
+.background-image {
+  background-image: url('design.png');
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat-y;
+  position: relative;
+  
+}
+h1,p{
+ text-decoration: dotted;
+  font-size: 30px;
+  font-weight: 100;
+  
+}
+
+.door-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.left-door {
+  left: 0;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-image: url('techfest-1.png');
+  background-size: cover;
+  transition: transform 1s ease-in-out;
+}
+.scrollable-container {
+  width: 100%;
+  max-height: 80vh; /* Set to the maximum height you want the container to be */
+  overflow-y: auto; /* Enable vertical scrollbar */
+  background-color: rgba(255, 255, 255, 0.5); /* Add some opacity to make the background semi-transparent */
+  padding: 20px; /* Add padding to separate the cards from the edges */
+}
+
+/* For mobile */
+@media (max-width: 767px) {
+  .door-container .left-door {
+    background-image: url('door3.png');
+    background-size: cover; /* Adjust background size to cover the container */
+    background-position: center; /* Center the background image */
+  }
+  
+  .door-container .right-door {
+    background-image: url('door4.png');
+    background-size: cover; /* Adjust background size to cover the container */
+    background-position: center; /* Center the background image */
+  }
+}
+
+
+.right-door {
+  right: 0;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-image: url('techfest-1.png');
+  background-size: cover;
+  transition: transform 1s ease-in-out;
+}
+
+.background-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+    opacity: 0; 
+}
+
+
+img {
+  width: 100%;
+  
+  
+}
+@media (max-width: 768px) {
+  .image-box {
+    width: 100%; /* Adjust width for smaller screens */
+    max-width: 100%; /* Adjust maximum width */
+  }
+}
+
+
+/* Animation */
+.door-container.loaded .left-door {
+  transform: translateX(-100%);
+}
+
+.door-container.loaded .right-door {
+  transform: translateX(100%);
+}
+.image-box {
+  position: relative;
+  width: 90%;
+  max-width: 300px; 
+  height: auto; 
+  margin: 20px auto; 
+  overflow: hidden;
+  
+  
+}
+.image-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 40px solid goldenrod; 
+  border-right: 40px solid transparent;
+}
+.arrow-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: goldenrod; /* Adjust arrow color */
+  font-size: 24px; /* Adjust arrow size */
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.arrow-icon:hover {
+  transform: translateY(-3px);
+}
+.box-border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('grass-border.png') repeat;
+  box-sizing: border-box;
+  border: 5px solid goldenrod; /* Golden border */
+  border-top: none;
+  border-bottom: 7px solid goldenrod;
+  border-right: none;
+}
+.box-border::before,
+.box-border::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('') no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+.box-border::before {
+  left: -5px;
+  top: -5px;
+  transform: rotate(90deg);
+}
+.box-border::after {
+  right: -5px;
+  bottom: -5px;
+  transform: rotate(-90deg);
+}
+.image-box:hover .box-border {
+  animation: shake 0.5s ease-in-out infinite;
+}
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10%, 90% { transform: translate(-5px, 0); }
+  20%, 80% { transform: translate(5px, 0); }
+  30%, 50%, 70% { transform: translate(-5px, 0); }
+  40%, 60% { transform: translate(5px, 0); }
+}
+.image-box .background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: goldenrod;
+  text-align: center;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.image-box:hover .content {
+  opacity: 1; /
+}
+.arrow-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: goldenrod;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.image-box:hover .arrow-icon {
+  opacity: 1; 
+    }
+        @media (max-width: 768px) {
+  .image-box {
+    width: 90%;
+    max-width: 90%; 
+  }
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    
+    background-image: url('ai (2).png');
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
